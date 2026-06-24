@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | The Tavern Coffee House |
+Locally Owned Coffee Shop in ...</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="online_order.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon 1.ico">
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="brownlogo.png" alt="The Tavern Coffeehouse Logo" class="logo-img">
+                </a>
+            </div>
+
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="menu.html">FULL MENU</a></li>
+                <li><a href="ourstory.html">OUR STORY</a></li>
+
+                <li class="dropdown">
+                    <a href="drip.html" class="dropdown-toggle">THE DRIP <i
+                            class="fa-solid fa-chevron-down arrow-icon"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="drip.html">Blog</a></li>
+                        <li><a href="coffee-culture.html">Coffee Culture</a></li>
+                        <li><a href="coffee-shop-life.html">Coffee Shop Life</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="host_an_event.html">HOST AN EVENT</a></li>
+                <li><a href="donate.html">DONATE</a></li>
+                <li><a href="online_order.html" class="order-btn">ORDER ONLINE</a></li>
+                <li><a href="cart.html" class="cart-icon"><i class="fa-solid fa-cart-shopping"></i></a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Main Container Segment Wrapper -->
+    <section id="order-ahead-section" class="order-master-wrapper">
+        <div class="order-container">
+
+            <!-- TOP BAR HEADER CONTROLS (Heading, Count & Sort Filter Selector Grid) -->
+            <header class="order-grid-header order-scroll-animate">
+                <div class="order-header-left">
+                    <h1 class="order-main-title">Order Ahead</h1>
+                    <span class="order-results-count">Showing all 12 results</span>
+                </div>
+                <div class="order-header-right">
+                    <div class="order-select-wrapper">
+                        <select name="orderby" class="order-sort-dropdown">
+                            <option value="menu_order" selected="selected">Sort by latest</option>
+                            <option value="popularity">Sort by popularity</option>
+                            <option value="rating">Sort by average rating</option>
+                            <option value="price">Sort by price: low to high</option>
+                            <option value="price-desc">Sort by price: high to low</option>
+                        </select>
+                    </div>
+                </div>
+            </header>
+
+            <!-- FOUR-COLUMN DYNAMIC E-COMMERCE PRODUCT GRID MENU -->
+            <main class="order-products-grid">
+
+                <!-- ITEM 1: Cappuccino -->
+                <div class="product-item-card order-scroll-animate">
+                    <div class="product-image-viewport">
+                        <img src="original-2-300x300.png" alt="Cappuccino" class="product-core-img">
+                        <!-- Clickable Plus Overlay Layer Node Component -->
+                        <div class="product-hover-overlay" data-name="Cappuccino" data-price="$5.00">
+                            <button type="button" class="product-add-cart-trigger" aria-label="Add Cappuccino to Cart">
+                                <span class="plus-icon-symbol">&#43;</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-meta-details">
+                        <h3 class="product-title-name">Cappuccino</h3>
+                        <span class="product-price-range">$5.00 – $6.00</span>
+                    </div>
+                </div>
+
+                <!-- ITEM 2: Latte -->
+                <div class="product-item-card order-scroll-animate">
+                    <div class="product-image-viewport">
+                        <img src="original-3-300x300.png" alt="Latte" class="product-core-img">
+                        <div class="product-hover-overlay" data-name="Latte" data-price="$5.00">
+                            <button type="button" class="product-add-cart-trigger" aria-label="Add Latte to Cart">
+                                <span class="plus-icon-symbol">&#43;</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-meta-details">
+                        <h3 class="product-title-name">Latte</h3>
+                        <span class="product-price-range">$5.00 – $6.00</span>
+                    </div>
+                </div>
+
+                <!-- ITEM 3: Mocha -->
+                <div class="product-item-card order-scroll-animate">
+                    <div class="product-image-viewport">
+                        <img src="AdobeStock_739399284-300x300.png" alt="Mocha" class="product-core-img">
+                        <div class="product-hover-overlay" data-name="Mocha" data-price="$5.00">
+                            <button type="button" class="product-add-cart-trigger" aria-label="Add Mocha to Cart">
+                                <span class="plus-icon-symbol">&#43;</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-meta-details">
+                        <h3 class="product-title-name">Mocha</h3>
+                        <span class="product-price-range">$5.00 – $6.00</span>
+                    </div>
+                </div>
+
+                <!-- ITEM 4: Muffin -->
+                <div class="product-item-card order-scroll-animate">
+                    <div class="product-image-viewport">
+                        <img src="original-8-300x300.png" alt="Muffin" class="product-core-img">
+                        <div class="product-hover-overlay" data-name="Muffin" data-price="$4.00">
+                            <button type="button" class="product-add-cart-trigger" aria-label="Add Muffin to Cart">
+                                <span class="plus-icon-symbol">&#43;</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-meta-details">
+                        <h3 class="product-title-name">Muffin</h3>
+                        <span class="product-price-range">$4.00</span>
+                    </div>
+                </div>
+
+                <!-- ITEM 5: Apple Danish -->
+                <div class="product-item-card order-scroll-animate">
+                    <div class="product-image-viewport">
+                        <img src="original-9-300x300.png" alt="Apple Danish" class="product-core-img">
+                        <div class="product-hover-overlay" data-name="Apple Danish" data-price="$5.00">
+                            <button type="button" class="product-add-cart-trigger"
+                                aria-label="Add Apple Danish to Cart">
+                                <span class="plus-icon-symbol">&#43;</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-meta-details">
+                        <h3 class="product-title-name">Apple Danish</h3>
+                        <span class="product-price-range">$5.00</span>
+                    </div>
+                </div>
+
+                <!-- ITEM 6: One pound coffee bag -->
+                <div class="product-item-card order-scroll-animate">
+                    <div class="product-image-viewport">
+                        <img src="https://thetaverncoffee.com/wp-content/uploads/2025/05/original-12-300x300.png"
+                            alt="One pound coffee bag" class="product-core-img">
+                        <div class="product-hover-overlay" data-name="One pound coffee bag" data-price="$19.00">
+                            <button type="button" class="product-add-cart-trigger" aria-label="Add Coffee Bag to Cart">
+                                <span class="plus-icon-symbol">&#43;</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-meta-details">
+                        <h3 class="product-title-name">One pound coffee bag</h3>
+                        <span class="product-price-range">$19.00</span>
+                    </div>
+                </div>
+
+                <!-- ITEM 7: Hot Chocolate -->
+                <div class="product-item-card order-scroll-animate">
+                    <div class="product-image-viewport">
+                        <img src="hot.png" alt="Hot Chocolate" class="product-core-img">
+                        <div class="product-hover-overlay" data-name="Hot Chocolate" data-price="$2.00">
+                            <button type="button" class="product-add-cart-trigger"
+                                aria-label="Add Hot Chocolate to Cart">
+                                <span class="plus-icon-symbol">&#43;</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-meta-details">
+                        <h3 class="product-title-name">Hot Chocolate</h3>
+                        <span class="product-price-range">$2.00</span>
+                    </div>
+                </div>
+
+                <!-- ITEM 8: Barrel of Coffee -->
+                <div class="product-item-card order-scroll-animate">
+                    <div class="product-image-viewport">
+                        <img src="Barrel of Coffee .png" alt="Barrel of Coffee" class="product-core-img">
+                        <div class="product-hover-overlay" data-name="Barrel of Coffee" data-price="$18.00">
+                            <button type="button" class="product-add-cart-trigger"
+                                aria-label="Add Barrel of Coffee to Cart">
+                                <span class="plus-icon-symbol">&#43;</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-meta-details">
+                        <h3 class="product-title-name">Barrel of Coffee</h3>
+                        <span class="product-price-range">$18.00</span>
+                    </div>
+                </div>
+
+                <!-- ITEM 9: Espresso Shot -->
+                <div class="product-item-card order-scroll-animate">
+                    <div class="product-image-viewport">
+                        <img src="original-14-300x300.png" alt="Espresso Shot" class="product-core-img">
+                        <div class="product-hover-overlay" data-name="Espresso Shot" data-price="$3.00">
+                            <button type="button" class="product-add-cart-trigger"
+                                aria-label="Add Espresso Shot to Cart">
+                                <span class="plus-icon-symbol">&#43;</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-meta-details">
+                        <h3 class="product-title-name">Espresso Shot</h3>
+                        <span class="product-price-range">$3.00</span>
+                    </div>
+                </div>
+
+                <!-- ITEM 10: Croissant -->
+                <div class="product-item-card order-scroll-animate">
+                    <div class="product-image-viewport">
+                        <img src="AdobeStock_51921198-300x300.jpeg" alt="Croissant" class="product-core-img">
+                        <div class="product-hover-overlay" data-name="Croissant" data-price="$3.00">
+                            <button type="button" class="product-add-cart-trigger" aria-label="Add Croissant to Cart">
+                                <span class="plus-icon-symbol">&#43;</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-meta-details">
+                        <h3 class="product-title-name">Croissant</h3>
+                        <span class="product-price-range">$3.00</span>
+                    </div>
+                </div>
+
+                <!-- ITEM 11: Farmers Market Coffee -->
+                <div class="product-item-card order-scroll-animate">
+                    <div class="product-image-viewport">
+                        <img src="istockphoto-1323756471-612x612.jpg" alt="Farmers Market Coffee"
+                            class="product-core-img">
+                        <div class="product-hover-overlay" data-name="Farmers Market Coffee" data-price="$2.70">
+                            <button type="button" class="product-add-cart-trigger"
+                                aria-label="Add Farmers Market Coffee to Cart">
+                                <span class="plus-icon-symbol">&#43;</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-meta-details">
+                        <h3 class="product-title-name">Farmers Market Coffee</h3>
+                        <span class="product-price-range">$2.70</span>
+                    </div>
+                </div>
+
+                <!-- ITEM 12: V8 Splash -->
+                <div class="product-item-card order-scroll-animate">
+                    <div class="product-image-viewport">
+                        <img src="71x1HzB+xQL.jpg" alt="V8 Splash" class="product-core-img">
+                        <div class="product-hover-overlay" data-name="V8 Splash" data-price="$1.50">
+                            <button type="button" class="product-add-cart-trigger" aria-label="Add V8 Splash to Cart">
+                                <span class="plus-icon-symbol">&#43;</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-meta-details">
+                        <h3 class="product-title-name">V8 Splash</h3>
+                        <span class="product-price-range">$1.50</span>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </section>
+    <div class="coffee-bottom-divider-wrapper">
+        <img src="bean_border-1.png" alt="The Tavern Coffeehouse - Organic Coffee Beans Border"
+            class="coffee-beans-fluid-img">
+    </div>
+    <footer class="tavern-footer">
+    <div class="footer-top-container">
+        
+        <div class="footer-column logo-column">
+            <img src="whitelogo.png" alt="The Tavern Coffeehouse Logo" class="footer-brand-logo">
+        </div>
+
+        <div class="footer-column info-column">
+            <h4 class="footer-col-title">The Tavern Coffee House</h4>
+            <p class="footer-info-text">
+                <a href="https://maps.google.com/?q=12302+Buckeye+Rd+Cleveland+OH+44120" target="_blank" class="footer-link-item underline-link">
+                    12302 Buckeye Rd<br>
+                    Cleveland, OH 44120
+                </a>
+            </p>
+            <p class="footer-info-text">
+                <a href="tel:2162917620" class="footer-link-item">(216) 291-7620</a>
+            </p>
+            
+            <h5 class="footer-status-title">Open Monday - Friday</h5>
+            <p class="footer-info-text">8am - 1pm</p>
+            
+            <div class="footer-social-row">
+                <a href="#" aria-label="Facebook Link" class="social-icon-btn"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" aria-label="TikTok Link" class="social-icon-btn"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="#" aria-label="Instagram Link" class="social-icon-btn"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-column links-column">
+            <ul class="footer-links-list">
+                <li><a href="index.html" class="footer-link-item">Home</a></li>
+                <li><a href="ourstory.html" class="footer-link-item">Our Story</a></li>
+                <li><a href="#" class="footer-link-item">Mission</a></li>
+                <li><a href="#" class="footer-link-item">Vision</a></li>
+                <li><a href="#" class="footer-link-item">Values</a></li>
+                <li><a href="#" class="footer-link-item">Pay It Forward</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column links-column">
+            <ul class="footer-links-list">
+                <li><a href="online_order.html" class="footer-link-item">Order Online</a></li>
+                <li><a href="menu.html" class="footer-link-item">Full Menu</a></li>
+                <li><a href="#" class="footer-link-item">Tavern Merch</a></li>
+                <li><a href="host_an_event.html" class="footer-link-item">Host an Event</a></li>
+                <li><a href="drip.html" class="footer-link-item">The Drip</a></li>
+                <li><a href="donate.html" class="footer-link-item">Donate</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column about-column">
+            <p class="footer-about-paragraph">
+                Once a neighborhood bar, now a nonprofit coffeehouse, The Tavern is where strong coffee fuels stronger careers and the strongest community. Join us in transforming Buckeye&mdash;one cup, one connection at a time.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom-bar">
+        <div class="footer-bottom-container">
+            <p class="copyright-legal-text">
+                &copy; 2026. The Tavern Coffee House. All Rights Reserved. Any unauthorized duplication of content herein will result in prosecution. The Tavern Coffee House is a 501(c)(3) Public Charity &middot; EIN 84-2004511. All donations are tax-deductible. 
+                <a href="#" class="footer-legal-link">Privacy Policy</a> | 
+                <a href="#" class="footer-legal-link">Terms of Use</a> | 
+                <a href="#" class="footer-legal-link">Refund Policy</a>. 
+                Coffee House Website Designed & Developed by <a href="#" target="_blank" class="footer-developer-credit">Baruch Design & Co.</a>
+            </p>
+        </div>
+    </div>
+</footer>
+    <script src="script.js"></script>
+    <script src="online_order.js"></script>
+    </head>
+
+    <body>

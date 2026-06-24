@@ -1,0 +1,1597 @@
+/* =================================================== */
+/* GLOBAL VARIABLES & FOUNDATION CONFIGURATION         */
+/* =================================================== */
+:root {
+    --bg-dark-brown: #3D2A27;
+    --bg-creamy-white: #FAF6F0; 
+    --text-charcoal: #2D2523;
+    --accent-gold: #B68D65;
+    --accent-dark-brown: #311E1C;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Poppins', sans-serif;
+}
+
+.section-padding {
+    padding: 90px 0;
+}
+
+.alternate-bg {
+    background-color: #F3ECE2 !important;
+}
+
+/* =================================================== */
+/* HERO HEADER BACKGROUND STRIP                        */
+/* =================================================== */
+.story-hero-banner {
+    position: relative;
+    width: 100%;
+    height: 190px;
+    background-image: url('coffee-beans-top-strip.jpg'); 
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.banner-overlay-tint {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(61, 42, 39, 0.45); /*Dark chocolate mask filter overlay*/
+    z-index: 1;
+}
+
+.story-main-title {
+    font-family: var(--font-heading);
+    color: #FAF6F0;
+    font-size: 52px;
+    font-weight: 400;
+    font-style: italic;
+    position: relative;
+    z-index: 5;
+    letter-spacing: 0.5px;
+}
+
+/* =================================================== */
+/* DYNAMIC SUB-NAVIGATION BAR (MINI NAV BAR)          */
+/* =================================================== */
+.story-mini-navbar {
+    background-color: #ffffff;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    position: sticky;
+    top: 0; /* Modern sticky interaction logic */
+    z-index: 999;
+}
+
+.mini-nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 22px 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 32px;
+    overflow-x: auto; /* Dynamic scrolling support for small mobile phones */
+    scrollbar-width: none; /* Hide rough scrollbars on Firefox */
+}
+
+.mini-nav-container::-webkit-scrollbar {
+    display: none; /* Hide layout scrollbars on Chrome/Safari browsers */
+}
+
+.mini-nav-link {
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--accent-gold);
+    text-decoration: none;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+}
+
+.mini-nav-link:hover, 
+.mini-nav-link.active {
+    color: var(--accent-dark-brown);
+}
+
+/* =================================================== */
+/* CORE CONTENT GRID & LAYOUT HOUSING BLOCK            */
+/* =================================================== */
+.story-content-section {
+    background-color: var(--bg-creamy-white);
+    width: 100%;
+}
+
+.story-grid-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr; /* Two perfect master columns */
+    align-items: center;
+    gap: 75px;
+}
+
+.full-width-center {
+    grid-column: span 2;
+    text-align: center;
+}
+
+/* =================================================== */
+/* ENGINE: BEFORE / AFTER INTERACTIVE SLIDER STYLES    */
+/* =================================================== */
+.slider-wrapper-component {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.image-comparison-slider {
+    position: relative;
+    width: 100%;
+    max-width: 540px;
+    aspect-ratio: 4 / 5; /* Elegant portrait aspect scale matching layout */
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+    user-select: none;
+    cursor: ew-resize; /* Side dragging cursor symbol profile */
+}
+
+.slider-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.img-after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+/* Absolute Before Box Overlay Layer */
+.before-image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50%; /* Initial starting crop position defaults to perfect 50% split */
+    overflow: hidden;
+    z-index: 20;
+}
+
+.before-image-container .slider-image {
+    width: 540px; /* Crucial: Fixed container matching original master frame width */
+    max-width: none;
+}
+
+/* Visual Labels Style setup */
+.badge-label {
+    position: absolute;
+    bottom: 30px;
+    background-color: #ffffff;
+    color: var(--text-charcoal);
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 8px 16px;
+    border-radius: 2px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    z-index: 30;
+}
+
+.badge-before {
+    left: 30px;
+}
+
+/* Interactive Split Slicing Handle styling */
+.slider-handle {
+    position: absolute;
+    top: 0;
+    left: 50%; /* Dynamic manipulation vector coordinates */
+    height: 100%;
+    width: 2px;
+    background-color: #ffffff;
+    z-index: 40;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.handle-circle {
+    width: 44px;
+    height: 44px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+    cursor: ew-resize;
+}
+
+.handle-icon {
+    font-size: 14px;
+    color: var(--text-charcoal);
+}
+
+.handle-line {
+    flex-grow: 1;
+    width: 2px;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* =================================================== */
+/* TEXT COLUMN TYPOGRAPHY SETTINGS                     */
+/* =================================================== */
+.story-text-column {
+    display: block;
+    text-align: left;
+}
+
+.story-section-heading {
+    font-family: var(--font-heading);
+    color: var(--text-charcoal);
+    font-size: 44px;
+    font-weight: 400;
+    line-height: 1.18;
+    margin-bottom: 28px;
+    letter-spacing: -0.5px;
+}
+
+.story-paragraph {
+    font-family: var(--font-body);
+    color: rgba(45, 37, 35, 0.75);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+/* Call To Action Buttons custom metrics */
+.story-cta-btn {
+    background-color: var(--accent-dark-brown);
+    border: none;
+    padding: 15px 32px;
+    color: #ffffff;
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    margin-top: 10px;
+}
+
+.story-cta-btn:hover {
+    background-color: var(--accent-gold);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(182, 141, 101, 0.2);
+}
+
+.cta-arrow {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.story-cta-btn:hover .cta-arrow {
+    transform: translateY(3px);
+}
+
+/* =================================================== */
+/* MASTER FULL RESPONSIVE DESIGN TRANSLATION MEDIA     */
+/* =================================================== */
+@media screen and (max-width: 1100px) {
+    .story-grid-container {
+        gap: 45px;
+    }
+    .story-section-heading {
+        font-size: 38px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .story-grid-container {
+        grid-template-columns: 1fr; /* Stack layout seamlessly on tablets and smaller tools */
+        gap: 50px;
+    }
+    .story-text-column {
+        text-align: center;
+    }
+    .story-section-heading {
+        font-size: 36px;
+    }
+    .slider-wrapper-component {
+        order: -1; /* Image stays predictably on top for stack layout matrices */
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .story-hero-banner {
+        height: 150px;
+    }
+    .story-main-title {
+        font-size: 38px;
+    }
+    .mini-nav-container {
+        padding: 18px 20px;
+        gap: 22px;
+    }
+    .story-mini-navbar {
+        text-align: left;
+    }
+    .story-grid-container {
+        padding: 0 24px;
+        gap: 35px;
+    }
+    .story-section-heading {
+        font-size: 28px;
+        line-height: 1.25;
+    }
+    .story-paragraph {
+        font-size: 14px;
+    }
+}
+/* =================================================== */
+/* LIQUID STYLING CONFIGURATION & VARIABLES             */
+/* =================================================== */
+:root {
+    --bg-dark-brown: #3D2A27;
+    --bg-creamy-white: #FAF6F0; /* Clean light paper background */
+    --text-charcoal: #2D2523;
+    --accent-gold: #B68D65;
+    --accent-dark-brown: #311E1C;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Poppins', sans-serif;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-creamy-white);
+    overflow-x: hidden;
+}
+
+.section-padding {
+    padding: 100px 0;
+}
+
+.alternate-canvas-bg {
+    background-color: #F6F0E7 !important; /* Subtle tint shifting */
+}
+
+/* =================================================== */
+/* HERO BANNER SECTION (TOP CHAINS STRIP)              */
+/* =================================================== */
+.story-hero-banner {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    background-image: url('coffee-beans-top-strip.jpg'); /* Set continuous pattern asset */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-overlay-tint {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(61, 42, 39, 0.4);
+    z-index: 1;
+}
+
+.story-main-title {
+    font-family: var(--font-heading);
+    color: #FAF6F0;
+    font-size: 50px;
+    font-weight: 400;
+    font-style: italic;
+    position: relative;
+    z-index: 5;
+    letter-spacing: 0.5px;
+}
+
+/* =================================================== */
+/* STICKY SUB-NAVIGATION SYSTEM (MINI NAVBAR)          */
+/* =================================================== */
+.story-mini-navbar {
+    background-color: #ffffff;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.mini-nav-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 35px;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none; /* Firefox slider isolation */
+}
+
+.mini-nav-container::-webkit-scrollbar {
+    display: none; /* Safari & Chrome mask execution */
+}
+
+.mini-nav-link {
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--accent-gold);
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+.mini-nav-link:hover, 
+.mini-nav-link.active {
+    color: var(--accent-dark-brown);
+}
+
+/* =================================================== */
+/* UNIVERSAL GRID AND STRUCTURE FLUIDITY               */
+/* =================================================== */
+.story-grid-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: 1.15r 1fr;
+    align-items: center;
+    gap: 80px;
+    width: 100%;
+}
+
+/* Specific Setup for layouts to create grid tracking variation */
+.layout-about {
+    grid-template-columns: 1.1fr 1fr;
+}
+
+.layout-mission {
+    grid-template-columns: 1fr 1.1fr; /* Flips balancing ratio visually */
+}
+
+.story-text-column {
+    display: block;
+}
+
+.section-micro-tag {
+    font-family: var(--font-body);
+    color: var(--accent-gold);
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+.story-section-heading {
+    font-family: var(--font-heading);
+    color: var(--text-charcoal);
+    font-size: 42px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 25px;
+    letter-spacing: -0.5px;
+}
+
+.story-paragraph {
+    font-family: var(--font-body);
+    color: rgba(45, 37, 35, 0.76);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.75;
+    margin-bottom: 22px;
+}
+
+.story-paragraph strong {
+    color: var(--text-charcoal);
+    font-weight: 600;
+}
+
+/* Action Trigger Button Styling */
+.story-cta-btn {
+    background-color: var(--accent-dark-brown);
+    border: none;
+    padding: 14px 30px;
+    color: #ffffff;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 3px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.25s ease;
+    margin-top: 8px;
+}
+
+.story-cta-btn:hover {
+    background-color: var(--accent-gold);
+}
+
+.cta-arrow {
+    font-size: 11px;
+}
+
+/* =================================================== */
+/* BEFORE / AFTER IMAGE SLIDER LAYOUT SYSTEM          */
+/* =================================================== */
+.slider-wrapper-component {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.image-comparison-slider {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+    cursor: ew-resize;
+    user-select: none;
+}
+
+.slider-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.img-after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.before-image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50%; /* Center split initialization point */
+    overflow: hidden;
+    z-index: 20;
+}
+
+.before-image-container .slider-image {
+    width: 520px; /* Locked tracking width sync */
+    max-width: none;
+}
+
+.badge-label {
+    position: absolute;
+    bottom: 25px;
+    background-color: #ffffff;
+    color: var(--text-charcoal);
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 6px 14px;
+    border-radius: 2px;
+    z-index: 30;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.badge-before { left: 25px; }
+
+.slider-handle {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 100%;
+    width: 2px;
+    background-color: #ffffff;
+    z-index: 40;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.handle-circle {
+    width: 40px;
+    height: 40px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.handle-icon {
+    font-size: 13px;
+    color: var(--text-charcoal);
+}
+
+.handle-line {
+    flex-grow: 1;
+    width: 2px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* =================================================== */
+/* PREMIUM ROUNDED IMAGE BOX (OUR MISSION MATCH)       */
+/* =================================================== */
+.mission-image-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.premium-rounded-card {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 1 / 1; /* Standard square box architecture matching image grid */
+    border-radius: 36px; /* Smooth heavy curved look matching original mock up layout */
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.07);
+}
+
+.mission-render-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Float Label Tag overlaying image */
+.floating-time-tag {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    background-color: rgba(45, 37, 35, 0.65); /* Elegant translucent smoky layer tag */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #ffffff;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    z-index: 30;
+}
+
+/* =================================================== */
+/* UNIVERSAL MULTI-DEVICE RESPONSIVE BREAKPOINTS ENGINE */
+/* =================================================== */
+@media screen and (max-width: 1100px) {
+    .story-grid-container {
+        gap: 45px;
+    }
+    .story-section-heading {
+        font-size: 36px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .section-padding {
+        padding: 75px 0;
+    }
+    .story-grid-container {
+        grid-template-columns: 1fr !important; /* Stack columns completely horizontal to avoid tight spaces */
+        gap: 55px;
+    }
+    .story-text-column {
+        text-align: center;
+    }
+    .slider-wrapper-component {
+        order: -1; /* Slider elements stays upfront top during stack collapse */
+    }
+    .mission-image-wrapper {
+        order: -1; /* Mission Image collapses nicely over text structure too */
+    }
+    .premium-rounded-card {
+        max-width: 440px; /* Scales down smoothly for medium screen footprints */
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .story-hero-banner {
+        height: 140px;
+    }
+    .story-main-title {
+        font-size: 36px;
+    }
+    .mini-nav-container {
+        padding: 15px 20px;
+        gap: 25px;
+    }
+    .story-grid-container {
+        padding: 0 24px;
+        gap: 40px;
+    }
+    .story-section-heading {
+        font-size: 28px;
+        line-height: 1.25;
+    }
+    .story-paragraph {
+        font-size: 14px;
+        line-height: 1.65;
+    }
+    .premium-rounded-card {
+        border-radius: 24px; /* Slightly lower curvature scale on smartphones */
+    }
+}
+/* =================================================== */
+/* OUR PURPOSE UTILITY & COLOR CODES                   */
+/* =================================================== */
+.dark-chocolate-bg {
+    background-color: #3D2A27 !important; /* Exact match with your dark brown screenshot theme */
+}
+
+/* Structural Alignment Adjustment */
+.layout-purpose {
+    grid-template-columns: 1.1fr 1fr;
+    align-items: center;
+}
+
+/* Light Text Variant Mapping for Dark Backgrounds */
+.text-light-theme .heading-white {
+    color: #FAF6F0 !important; /* Premium cream white heading */
+}
+
+.text-light-theme .paragraph-light-opaque {
+    color: rgba(250, 246, 240, 0.8) !important; /* Subtle translucent legible body reading layer */
+}
+
+.text-light-theme .tag-light-gold {
+    color: #B68D65 !important; /* Golden accent tag */
+}
+
+/* =================================================== */
+/* PURPOSE ARTWORK BOX COMPONENT                       */
+/* =================================================== */
+.purpose-image-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.purpose-artwork-card {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    aspect-ratio: 16 / 10; /* Dynamic landscape aspect framing to match your exact layout screenshot */
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    border-radius: 4px; /* Crisp minimal padding cuts */
+}
+
+.purpose-render-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* Clean Hover Macro Effect */
+.purpose-artwork-card:hover .purpose-render-img {
+    transform: scale(1.03);
+}
+
+/* =================================================== */
+/* EXTRA RESPONSIBILITY MEDIA BREAKPOINTS FOR PURPOSE  */
+/* =================================================== */
+@media screen and (max-width: 992px) {
+    .layout-purpose {
+        grid-template-columns: 1fr !important; /* Perfect fluid stack structure on tablets */
+        gap: 45px;
+    }
+    
+    .purpose-image-wrapper {
+        justify-content: center; /* Center-align picture box when screen collapses */
+    }
+    
+    .layout-purpose .story-text-column {
+        text-align: center; /* Center-align text profile on smaller screens */
+    }
+    
+    .purpose-artwork-card {
+        max-width: 480px; /* Scaling optimization barrier */
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .layout-purpose {
+        gap: 35px;
+    }
+    
+    .purpose-artwork-card {
+        max-width: 100%; /* Spans naturally on mobile layouts without bleeding out */
+        aspect-ratio: 4 / 3; /* Highly efficient display proportion rules for small phones */
+    }
+}
+/* =================================================== */
+/* OUR VISION STRUCTURAL ARCHITECTURE                  */
+/* =================================================== */
+.clear-vision-canvas {
+    background-color: #FAF6F0 !important; /* Premium off-white clean paper backdrop matching original mock */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Re-adjusting specific column proportions to match the exact spacing grid */
+.layout-vision {
+    grid-template-columns: 1.15fr 1fr;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+/* Tightening line breaks on long aesthetic fluid serif titles */
+.vision-heading-space {
+    font-size: 38px !important;
+    line-height: 1.22 !important;
+    font-weight: 400;
+    margin-bottom: 28px;
+    letter-spacing: -0.5px;
+}
+
+/* =================================================== */
+/* IMAGE CARD WITH REFINED GEOMETRY                    */
+/* =================================================== */
+.vision-image-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.vision-asset-card {
+    position: relative;
+    width: 100%;
+    max-width: 490px;
+    aspect-ratio: 1.15 / 1; /* Elegant wide rectangle orientation exactly matching the screenshot blueprint */
+    overflow: hidden;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.05);
+    border-radius: 4px; /* Minimal clean cut edges */
+}
+
+.vision-render-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* =================================================== */
+/* BACKGROUND BOTANICAL WATERMARK ENGINE              */
+/* =================================================== */
+/* Base vectors matching the translucent leaves showing in your attachment corners */
+.canvas-watermark-left,
+.canvas-watermark-right {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    background-image: url('coffee-leaves-watermark.png'); /* Replace with your translucent leaf line-art asset */
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.04; /* Ultra subtle elegant mask visibility */
+    pointer-events: none;
+    z-index: 1;
+}
+
+.canvas-watermark-left {
+    bottom: -60px;
+    left: -40px;
+    transform: rotate(45px);
+}
+
+.canvas-watermark-right {
+    top: -40px;
+    right: -50px;
+    transform: rotate(-15deg);
+}
+
+/* =================================================== */
+/* SYSTEM LIQUID RESPONSIVE ENGINE (ALL DEVICES)        */
+/* =================================================== */
+@media screen and (max-width: 1100px) {
+    .vision-heading-space {
+        font-size: 32px !important;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .layout-vision {
+        grid-template-columns: 1fr !important; /* Collapses beautifully into single column stack on tablet viewports */
+        gap: 50px;
+    }
+    
+    .vision-image-wrapper {
+        justify-content: center; /* Balanced alignments when elements drop vertically */
+        order: 1; /* Keeps image below text context fluidly */
+    }
+    
+    .layout-vision .story-text-column {
+        text-align: center;
+    }
+    
+    .vision-asset-card {
+        max-width: 440px;
+    }
+    
+    .canvas-watermark-left,
+    .canvas-watermark-right {
+        width: 220px; /* Scaling down decorative parameters to protect visual space */
+        height: 220px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .vision-heading-space {
+        font-size: 26px !important;
+        line-height: 1.3 !important;
+    }
+    
+    .layout-vision {
+        gap: 35px;
+    }
+    
+    .vision-asset-card {
+        max-width: 100%; /* Fully scale inside bounding box safely on mobile grids */
+        aspect-ratio: 4 / 3; /* Highly efficient landscape ratio for smartphones layout specs */
+    }
+    
+    /* Disabling heavy screen edge watermarks on phones to keep content presentation clean */
+    .canvas-watermark-left,
+    .canvas-watermark-right {
+        display: none;
+    }
+}
+/* =================================================== */
+/* GLOBAL RESET & FONTS CONFIGURATION                  */
+/* =================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth; /* Click karne par smoothly scroll hoga */
+}
+
+body {
+    background-color: #FAF6F0; /* Creamy background match */
+    -webkit-font-smoothing: antialiased;
+}
+
+/* =================================================== */
+/* VALUES SECTION LAYOUT CANVAS                        */
+/* =================================================== */
+.values-master-section {
+    width: 100%;
+    padding: 120px 0 100px 0; /* Sticky Navbar ke offset space ke liye top padding badhayi hai */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scroll-margin-top: 60px; /* Navbar ke peeche section ko chhupne se rokega */
+}
+
+.values-inner-container {
+    width: 100%;
+    max-width: 1160px;
+    padding: 0 40px;
+}
+
+.values-section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 44px;
+    font-weight: 400;
+    color: #2D2523;
+    margin-bottom: 40px;
+    letter-spacing: -0.5px;
+}
+
+/* =================================================== */
+/* ACCORDION ACCENT ARCHITECTURE                       */
+/* =================================================== */
+.values-accordion-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.accordion-item {
+    width: 100%;
+    background-color: #3D2A27; /* Dark Chocolate Brown */
+    border: 1px solid transparent;
+    transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.accordion-item.active {
+    background-color: #ffffff;
+    border: 1px solid #E8E2D9;
+}
+
+.accordion-header {
+    padding: 26px 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.accordion-header .header-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 400;
+    font-style: italic;
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+.accordion-item.active .accordion-header .header-title {
+    color: #2D2523;
+}
+
+/* --- Morphing Custom Icon (+ / -) --- */
+.accordion-toggle-icon {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.accordion-toggle-icon::before {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 1.5px;
+    background-color: #ffffff;
+    transition: transform 0.35s ease, background-color 0.3s ease;
+}
+
+.accordion-toggle-icon::after {
+    content: '';
+    position: absolute;
+    width: 1.5px;
+    height: 16px;
+    background-color: #ffffff;
+    transition: transform 0.35s ease, background-color 0.3s ease;
+}
+
+.accordion-item.active .accordion-toggle-icon::before {
+    background-color: #2D2523;
+}
+
+.accordion-item.active .accordion-toggle-icon::after {
+    background-color: #2D2523;
+    transform: rotate(90deg);
+    opacity: 0;
+}
+
+/* --- Content Panel Base Logic --- */
+.accordion-content-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.panel-body-text {
+    padding: 0 35px 35px 35px;
+}
+
+.panel-body-text p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14.5px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: rgba(45, 37, 35, 0.82);
+}
+
+/* =================================================== */
+/* RESPONSIVE DESIGN BREAKPOINTS                       */
+/* =================================================== */
+@media screen and (max-width: 768px) {
+    .values-master-section {
+        padding: 80px 0 60px 0;
+    }
+    .values-inner-container {
+        padding: 0 24px;
+    }
+    .values-section-title {
+        font-size: 34px;
+        margin-bottom: 28px;
+    }
+    .accordion-header {
+        padding: 20px 24px;
+    }
+    .accordion-header .header-title {
+        font-size: 22px;
+    }
+    .panel-body-text {
+        padding: 0 24px 24px 24px;
+    }
+    .panel-body-text p {
+        font-size: 13.5px;
+        line-height: 1.7;
+    }
+}
+/* ==========================================================================
+   1. CORE RENDERING ENGINE DEFAULTS & TOKENS
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #FAF6F0; /* Baseline background tone parity */
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   2. SYSTEM MAIN CANVAS GRID LAYOUT
+   ========================================================================== */
+.donation-master-section {
+    width: 100%;
+    padding: 100px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Keeps content baseline safe below dynamic top bar overlays */
+    scroll-margin-top: 80px; 
+}
+
+.donation-grid-layout {
+    width: 100%;
+    max-width: 1140px;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr; /* Screen ratio balance split */
+    gap: 70px;
+    align-items: flex-start;
+}
+
+/* ==========================================================================
+   3. TYPOGRAPHY & MEDIA STYLING (LEFT COLUMN)
+   ========================================================================== */
+.donation-content-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.donation-sub-tag {
+    font-family: 'Poppins', sans-serif;
+    color: #A37F61; /* Clean roasted brand brown tint code */
+    font-size: 13.5px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    letter-spacing: 0.2px;
+}
+
+.donation-main-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 46px;
+    font-weight: 400;
+    color: #2D2523; /* Crisp custom dark charcoal contrast */
+    line-height: 1.15;
+    margin-bottom: 25px;
+}
+
+.donation-paragraph {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14.5px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: rgba(45, 37, 35, 0.8);
+    margin-bottom: 35px;
+}
+
+.donation-media-frame {
+    width: 100%;
+    max-width: 480px;
+    aspect-ratio: 16 / 11;
+    border-radius: 28px; /* Smooth card curvature look */
+    overflow: hidden;
+}
+
+.donation-fluid-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ==========================================================================
+   4. GIVEBUTTER INTERACTIVE ENGINE CARD DESIGN (RIGHT COLUMN)
+   ========================================================================== */
+.donation-form-column {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.givebutter-embed-card {
+    width: 100%;
+    max-width: 430px;
+    background: #FFFFFF;
+    border: 1px solid #EAE4DA;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 8px 30px rgba(61, 42, 39, 0.03);
+}
+
+/* --- Embed Status Bar Header --- */
+.widget-status-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.checkmark-circle-icon {
+    color: #10B981; /* Precise payment engine secure emerald green */
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.status-header-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #2D2523;
+}
+
+/* --- Frequency Segmented Switch Control --- */
+.frequency-toggle-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: #F4F0EB;
+    padding: 4px;
+    border-radius: 8px;
+    margin-bottom: 22px;
+}
+
+.freq-btn {
+    border: none;
+    background: transparent;
+    padding: 10px 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #5C524F;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.freq-btn.active {
+    background: #E0D7CD; /* Premium organic slate active background look */
+    color: #2D2523;
+}
+
+/* --- Grid Tier Amount Matrices --- */
+.amount-tier-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.tier-option-card {
+    background: #F7F5F0;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    cursor: pointer;
+    transition: all 0.22s ease;
+}
+
+.tier-option-card:nth-child(3) {
+    grid-column: span 2; /* Spans across entire row just like the screenshot */
+}
+
+.tier-option-card .tier-currency-value {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #2D2523;
+}
+
+.tier-option-card .tier-perk-desc {
+    font-family: 'Poppins', sans-serif;
+    font-size: 11.5px;
+    color: #6D625E;
+}
+
+.tier-option-card:hover {
+    background: #EFECE5;
+}
+
+.tier-option-card.active {
+    background: #FFFFFF;
+    border-color: #A38474; /* Gives focused bounding outline look */
+    box-shadow: 0 4px 12px rgba(163, 132, 116, 0.12);
+}
+
+/* --- Native Functional Amount Node Box --- */
+.custom-amount-input-box {
+    width: 100%;
+    background: #F4F0EB;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    margin-bottom: 22px;
+    transition: border-color 0.2s;
+}
+
+.custom-amount-input-box:focus-within {
+    border-color: #A38474;
+    background: #FFFFFF;
+}
+
+.currency-symbol-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: #6D625E;
+    margin-right: 8px;
+}
+
+.amount-native-node {
+    flex-grow: 1;
+    border: none;
+    background: transparent;
+    height: 48px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15.5px;
+    font-weight: 600;
+    color: #2D2523;
+    outline: none;
+}
+
+/* Strips native browser inner spinners from tracking values */
+.amount-native-node::-webkit-outer-spin-button,
+.amount-native-node::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.currency-code-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #8C807B;
+    letter-spacing: 0.5px;
+}
+
+/* --- Custom Styled Checkbox Arrays --- */
+.form-addendum-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 26px;
+}
+
+.addendum-checkbox-row {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+}
+
+.checkbox-native-input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0; width: 0;
+}
+
+.custom-checkbox-facade {
+    height: 18px;
+    width: 18px;
+    background: #FFFFFF;
+    border: 1px solid #D1C9BE;
+    border-radius: 4px;
+    margin-right: 12px;
+    display: inline-block;
+    position: relative;
+    transition: all 0.2s;
+}
+
+.addendum-checkbox-row:hover .custom-checkbox-facade {
+    border-color: #A38474;
+}
+
+.checkbox-native-input:checked ~ .custom-checkbox-facade {
+    background: #A38474;
+    border-color: #A38474;
+}
+
+.custom-checkbox-facade::after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 5px; top: 2px;
+    width: 4px; height: 8px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.checkbox-native-input:checked ~ .custom-checkbox-facade::after {
+    display: block;
+}
+
+.checkbox-label-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13.5px;
+    color: #4A403D;
+}
+
+/* --- Primary Core Submit Controller --- */
+.form-submission-button {
+    width: 100%;
+    background: #A38F8A; /* Exact slate clay tone profile code */
+    border: none;
+    height: 50px;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+    margin-bottom: 20px;
+}
+
+.form-submission-button:hover {
+    background: #8F7B76;
+}
+
+/* --- Givebutter Footer Identity Element --- */
+.givebutter-trust-attribution {
+    width: calc(100% + 60px);
+    margin-left: -30px;
+    margin-bottom: -30px;
+    background: #F0EDE9;
+    border-top: 1px solid #E2DDD5;
+    padding: 12px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    border-bottom-left-radius: 11px;
+    border-bottom-right-radius: 11px;
+}
+
+.trust-emoji-icon {
+    font-size: 14px;
+}
+
+.attribution-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #5C524F;
+}
+
+/* ==========================================================================
+   5. COMPREHENSIVE RESPONSIVE DESIGN PIPELINE
+   ========================================================================== */
+@media screen and (max-width: 992px) {
+    .donation-grid-layout {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    .donation-content-column, .donation-form-column {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .donation-media-frame {
+        max-width: 100%;
+    }
+    .givebutter-embed-card {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .donation-master-section {
+        padding: 60px 0;
+    }
+    .donation-grid-layout {
+        padding: 0 20px;
+    }
+    .donation-main-heading {
+        font-size: 32px;
+    }
+    .givebutter-embed-card {
+        padding: 20px;
+    }
+    .givebutter-trust-attribution {
+        width: calc(100% + 40px);
+        margin-left: -20px;
+        margin-bottom: -20px;
+    }
+    .amount-tier-grid {
+        grid-template-columns: 1fr;
+    }
+    .tier-option-card:nth-child(3) {
+        grid-column: span 1;
+    }
+}
+/* =================================================== */
+/* COFFEE BEANS BOTTOM DIVIDER STYLING                 */
+/* =================================================== */
+.coffee-bottom-divider-wrapper {
+    width: 100%;
+    display: block;
+    line-height: 0;      /* Inline image ke niche aane wale unwanted default browser gap ko pure tarike se khatam karta hai */
+    margin-top: 60px;    /* Pay It Forward section se perfect breathing space distance */
+    background-color: transparent;
+    overflow: hidden;
+    pointer-events: none; /* User is strip par click ya select na kar sake */
+}
+
+.coffee-beans-fluid-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;   /* Large screens par beans ko squeeze hone se rokega aur natural ratio maintain rakhega */
+    object-position: bottom center;
+}
+
+/* Responsive adjustments for smoother layout scaling */
+@media screen and (max-width: 768px) {
+    .coffee-bottom-divider-wrapper {
+        margin-top: 40px; /* Mobile screens par space automatic thodi kam ho jayegi */
+    }
+}

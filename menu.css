@@ -1,0 +1,235 @@
+/* =================================================== */
+/* FRESH FULL MENU MAIN ARCHITECTURE STYLES            */
+/* =================================================== */
+.menu-section {
+    background-color: #3D2A27; /* Rich corporate warm dark brown tone */
+    width: 100%;
+    position: relative;
+    /* Extra padding bottom to accommodate the absolute wave border safely */
+    padding: 0 0 160px 0; 
+    overflow: hidden;
+}
+
+/* Header Section Frame */
+.menu-header-banner {
+    position: relative;
+    width: 100%;
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.15); /* Soft blend backdrop shade */
+}
+
+.menu-main-title {
+    font-family: 'Playfair Display', serif;
+    color: #E2D4C5; /* Beautiful soft metallic creamy gold hue */
+    font-size: 48px;
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: 0.5px;
+}
+
+/* Central Responsive Content Shell */
+.menu-content-container {
+    max-width: 1320px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 70px 40px 0 40px;
+    position: relative;
+    z-index: 5;
+}
+
+/* Toolbar Control Panel Wrapper */
+.menu-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding-bottom: 25px;
+}
+
+.results-counter {
+    font-family: 'Poppins', sans-serif;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 14px;
+    font-weight: 400;
+}
+
+/* Custom Operational Dropdown Select Button */
+.custom-dropdown {
+    position: relative;
+    width: 220px;
+    font-family: 'Poppins', sans-serif;
+    user-select: none;
+}
+
+.dropdown-trigger {
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    padding: 12px 18px;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 13.5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.25s ease;
+}
+
+.dropdown-trigger:hover {
+    border-color: rgba(255, 255, 255, 0.35);
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.arrow-icon {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.6);
+    transition: transform 0.25s ease;
+}
+
+/* Dynamic open toggle configuration states */
+.custom-dropdown.open .arrow-icon {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu-list {
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    width: 100%;
+    background-color: #31211F;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    list-style: none;
+    padding: 6px 0;
+    margin: 0;
+    display: none; /* Managed explicitly via active class toggles */
+    z-index: 999;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.55);
+}
+
+.custom-dropdown.open .dropdown-menu-list {
+    display: block;
+}
+
+.dropdown-menu-list li {
+    padding: 11px 18px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 13.5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.dropdown-menu-list li:hover {
+    background-color: rgba(255, 255, 255, 0.06);
+    color: #ffffff;
+}
+
+/* =================================================== */
+/* PREMIUM 6-COLUMN GRID STRUCTURAL MATRIX             */
+/* =================================================== */
+.menu-grid-matrix {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* Clean 6 Columns across large viewports */
+    column-gap: 40px;
+    row-gap: 60px;
+    width: 100%;
+}
+
+.menu-item-card {
+    display: block;
+    text-align: left;
+}
+
+.item-name {
+    font-family: 'Playfair Display', serif;
+    color: #DECBB7; /* Cream signature vintage look text values */
+    font-size: 19px; /* Enhanced sizing scale */
+    font-weight: 400;
+    line-height: 1.35;
+    margin-bottom: 8px;
+    letter-spacing: 0.2px;
+}
+
+.item-price {
+    font-family: 'Poppins', sans-serif;
+    color: rgba(255, 255, 255, 0.5); /* Crisp highly responsive gray tone contrast */
+    font-size: 14.5px;
+    font-weight: 400;
+    display: block;
+}
+
+/* =================================================== */
+/* ABSOLUTE COFFEE BEANS WAVE BOTTOM BORDER            */
+/* =================================================== */
+.menu-bean-wave-border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    line-height: 0;
+    z-index: 10;
+    pointer-events: none; /* Mouse moves transparently over image gaps */
+}
+
+.wave-image-render {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    /* Negative margin prevents micro white gaps across different browser render engines */
+    margin-bottom: -1px; 
+}
+
+/* =================================================== */
+/* LIQUID ADAPTIVE RESPONSIVE GRID MEDIA QUERY SYSTEM  */
+/* =================================================== */
+@media screen and (max-width: 1300px) {
+    .menu-grid-matrix {
+        grid-template-columns: repeat(4, 1fr); /* Drops to 4 columns safely */
+        column-gap: 30px;
+        row-gap: 50px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .menu-grid-matrix {
+        grid-template-columns: repeat(3, 1fr); /* 3 Columns on iPad pro landscape layouts */
+        row-gap: 45px;
+    }
+    .menu-main-title {
+        font-size: 42px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .menu-section {
+        padding-bottom: 120px; /* Adapts spacing for smaller wave view scales */
+    }
+    .menu-content-container {
+        padding: 45px 24px 0 24px;
+    }
+    .menu-toolbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+        margin-bottom: 40px;
+    }
+    .custom-dropdown {
+        width: 100%; /* Spreads dropdown selection bar fully fluid on mobile viewports */
+    }
+    .menu-grid-matrix {
+        grid-template-columns: repeat(2, 1fr); /* Perfect dual balanced grid tracking on smartphones */
+        column-gap: 24px;
+        row-gap: 38px;
+    }
+    .item-name {
+        font-size: 17.5px;
+    }
+    .item-price {
+        font-size: 13.5px;
+    }
+}

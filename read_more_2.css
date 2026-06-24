@@ -1,0 +1,242 @@
+body {
+  background-color: #faf6f0; /* Soft warm tinted white background */
+  color: #2b2b2b;
+  font-family: 'Georgia', serif; /* Classic editorial font matching the image */
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- HERO BANNER (Top Section) --- */
+.hero-banner {
+  /* Using a dark brown coffee bean pattern style tint overlay */
+  background: linear-gradient(rgba(45, 30, 24, 0.92), rgba(45, 30, 24, 0.92)), 
+              url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200') no-repeat center center/cover;
+  color: #ffffff;
+  text-align: center;
+  padding: 80px 20px;
+  border-bottom: 4px solid #1e130f;
+}
+
+.banner-content .category {
+  font-family: 'Arial', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  color: #b59273;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.banner-content h1 {
+  font-size: 2.4rem;
+  font-weight: normal;
+  max-width: 800px;
+  margin: 0 auto 15px auto;
+  line-height: 1.3;
+}
+
+.banner-content .author {
+  font-family: 'Arial', sans-serif;
+  font-size: 0.75rem;
+  color: #a89a90;
+  letter-spacing: 1px;
+}
+
+/* --- MAIN LAYOUT GRID --- */
+.container {
+  display: flex;
+  max-width: 1150px;
+  margin: 50px auto;
+  padding: 0 30px;
+  gap: 60px; /* Perfect space between content and sidebar */
+}
+
+.main-content {
+  flex: 2;
+}
+
+.sidebar {
+  flex: 1;
+  min-width: 320px;
+}
+
+/* --- LEFT SIDE: CONTENT STYLES --- */
+.main-image-wrapper {
+  width: 100%;
+  margin-bottom: 35px;
+}
+
+.blog-main-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.article-text p {
+  margin-bottom: 22px;
+  color: #333333;
+  font-size: 1.05rem;
+  text-align: justify;
+}
+
+.article-text .intro-text {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #555555;
+  margin-bottom: 25px;
+}
+
+.article-text h2 {
+  font-size: 1.5rem;
+  color: #1a1a1a;
+  margin: 40px 0 20px 0;
+  font-weight: normal;
+}
+
+.article-text h3 {
+  font-size: 1.25rem;
+  color: #1a1a1a;
+  margin: 30px 0 15px 0;
+  font-weight: bold;
+}
+
+.article-text ul {
+  list-style-type: none;
+  margin-bottom: 25px;
+}
+
+.article-text li {
+  margin-bottom: 20px;
+  padding-left: 5px;
+}
+
+.article-text blockquote {
+  border-left: 3px solid #b59273;
+  padding-left: 15px;
+  margin: 25px 0;
+  font-style: italic;
+}
+
+/* --- RIGHT SIDE: YELLOW SIDEBAR CARD --- */
+.coffee-reads-card {
+  background-color: #eedec9; /* Exact yellow/creamy brown tint from picture */
+  padding: 25px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.card-tag {
+  font-family: 'Arial', sans-serif;
+  font-size: 0.7rem;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  color: #544338;
+  display: block;
+  margin-bottom: 15px;
+}
+
+/* Image Container handles the right fade hide setup */
+.card-img-holder {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.card-img-holder img {
+  width: 100%;
+  height: auto;
+  display: block;
+  
+  /* Initial State for Javascript trigger */
+  opacity: 0;
+  transform: translateX(60px); 
+  transition: opacity 0.9s ease-out, transform 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* CSS trigger class called by JS */
+.card-img-holder img.fade-in-right {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.card-body h3 {
+  font-size: 1.25rem;
+  color: #261710;
+  margin-bottom: 10px;
+  font-weight: normal;
+  line-height: 1.3;
+}
+
+.card-author {
+  font-family: 'Arial', sans-serif;
+  font-size: 0.7rem;
+  color: #7a685c;
+  margin-bottom: 15px;
+}
+
+.card-desc {
+  font-size: 0.9rem;
+  color: #4a3e36;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.read-more-btn {
+  font-family: 'Arial', sans-serif;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #000000;
+  text-decoration: none;
+  border-bottom: 1.5px solid #000000;
+  padding-bottom: 2px;
+  display: inline-block;
+}
+
+/* --- FOOTER NAV --- */
+.footer-nav {
+  max-width: 1150px;
+  margin: 60px auto 40px auto;
+  padding: 20px 30px;
+  border-top: 1px solid #e3dbd3;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-nav a {
+  font-size: 0.85rem;
+  color: #666666;
+  text-decoration: none;
+}
+
+.footer-nav a:hover {
+  color: #000;
+}
+
+/* --- FULLY RESPONSIVE FOR ALL DEVICES --- */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    padding: 0 20px;
+    gap: 40px;
+  }
+  
+  .sidebar {
+    width: 100%;
+  }
+  
+  .footer-nav {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .banner-content h1 {
+    font-size: 1.75rem;
+  }
+  
+  .hero-banner {
+    padding: 50px 15px;
+  }
+}

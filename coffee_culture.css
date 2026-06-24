@@ -1,0 +1,250 @@
+/* ==========================================================================
+   1. LAYOUT BASE SYSTEM TOKENS
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #FFFFFF;
+    -webkit-font-smoothing: antialiased;
+}
+
+.culture-archive-section {
+    width: 100%;
+    scroll-margin-top: 80px; /* Safe cushion area for sticky navbars alignment */
+    background-color: #FFFFFF;
+}
+
+/* ==========================================================================
+   2. HERO ACCENT ARCHIVE HEADER BANNER (SCREENSHOT ALIGNMENT PARITY)
+   ========================================================================== */
+.culture-hero-header {
+    width: 100%;
+    background-color: #352522; /* Dark roasted premium cocoa base code */
+    /* Optional texture profile mapping integration: */
+    /* background-image: url('coffee-beans-texture.jpg'); */
+    background-repeat: repeat;
+    background-size: contain;
+    padding: 65px 0 70px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.culture-hero-inner {
+    width: 100%;
+    max-width: 1160px;
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Left-aligned elements matching the exact layout */
+}
+
+.culture-top-tag {
+    font-family: 'Poppins', sans-serif;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+}
+
+.culture-main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 44px;
+    font-weight: 400;
+    font-style: italic;
+    color: #FFFFFF;
+    letter-spacing: -0.2px;
+}
+
+/* --- CINEMATIC SLOW-MOTION HEADER TRANSITIONS --- */
+.culture-animate-header {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 1.5s cubic-bezier(0.22, 1, 0.36, 1), 
+                transform 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.culture-animate-header.fade-in-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Subtle soft delay added over main heading text nodes */
+h1.culture-animate-header {
+    transition-delay: 0.18s;
+}
+
+/* ==========================================================================
+   3. THE TWO-COLUMN BALANCED CARD GRID LAYOUT
+   ========================================================================== */
+.culture-cards-wrapper {
+    width: 100%;
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 85px 40px;
+}
+
+.culture-posts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 Columns Layout blueprint */
+    gap: 36px;
+    align-items: stretch;
+}
+
+/* --- Custom Card Frame Blocks --- */
+.culture-post-card {
+    background: #FFFFFF;
+    border: 1px solid #ECE6DE;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.culture-post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 38px rgba(53, 37, 34, 0.05);
+}
+
+/* --- Image Viewport Elements --- */
+.culture-image-viewport {
+    width: 100%;
+    aspect-ratio: 16 / 10.5;
+    background-color: #F6F3EE;
+    overflow: hidden;
+    border-bottom: 1px solid #ECE6DE;
+}
+
+.culture-fluid-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.culture-post-card:hover .culture-fluid-img {
+    transform: scale(1.035);
+}
+
+/* --- Editorial Context Typography Panels --- */
+.culture-text-content {
+    padding: 32px 30px 34px 30px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.culture-post-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: #2F2421;
+    line-height: 1.35;
+    margin-bottom: 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Truncates clean layout overflow borders */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.culture-post-meta {
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    color: #A8866E; /* Muted corporate organic tan color tag */
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 18px;
+    display: block;
+}
+
+.culture-post-excerpt {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13.5px;
+    line-height: 1.78;
+    color: #6F6662;
+    margin-bottom: 24px;
+    flex-grow: 1;
+}
+
+.culture-read-link {
+    font-family: 'Poppins', sans-serif;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #9C3221; /* Signature high contrast signature dynamic wine red links */
+    text-decoration: none;
+    letter-spacing: 1.2px;
+    display: inline-block;
+    transition: color 0.2s ease, transform 0.2s ease;
+    align-self: flex-start;
+}
+
+.culture-read-link:hover {
+    color: #2F2421;
+    transform: translateX(3px);
+}
+
+/* ==========================================================================
+   4. SLOW-MOTION CARDS INTRO STAGGER INTERVAL TIMINGS
+   ========================================================================== */
+.culture-post-card.culture-animate-card {
+    opacity: 0;
+    transform: translateY(45px);
+    transition: opacity 1.4s cubic-bezier(0.215, 0.61, 0.355, 1), 
+                transform 1.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.culture-post-card.culture-animate-card.fade-in-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Perfectly synchronized slow staggered deployment */
+.culture-post-card.culture-animate-card:nth-child(1) { transition-delay: 0.5s; }
+.culture-post-card.culture-animate-card:nth-child(2) { transition-delay: 0.75s; }
+
+/* ==========================================================================
+   5. COMPREHENSIVE RESPONSIVE VIEWPORT BREAKPOINTS (ALL DEVICES)
+   ========================================================================== */
+@media screen and (max-width: 992px) {
+    .culture-posts-grid {
+        grid-template-columns: 1fr; /* Collapses into 1 clean column on tablets/mobile devices */
+        gap: 32px;
+    }
+    .culture-cards-wrapper {
+        padding: 60px 30px;
+    }
+    .culture-main-title {
+        font-size: 38px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .culture-hero-header {
+        padding: 50px 0 55px 0;
+    }
+    .culture-hero-inner {
+        padding: 0 20px;
+    }
+    .culture-main-title {
+        font-size: 32px;
+    }
+    .culture-cards-wrapper {
+        padding: 45px 20px;
+    }
+    .culture-text-content {
+        padding: 24px 20px;
+    }
+    .culture-post-heading {
+        font-size: 19px;
+    }
+}

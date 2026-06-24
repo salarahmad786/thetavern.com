@@ -1,0 +1,1518 @@
+/* Google Font Import (Aesthetic Coffee Vibe ke liye) */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Poppins:wght@400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Oswald', sans-serif; /* Bold heading style look ke liye */
+}
+
+body {
+    background-color: #fafafa;
+}
+
+/* Navbar Base Styling */
+.navbar {
+    background-color: #ffffff;
+    padding: 15px 40px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Logo */
+.logo-img {
+    height: 75px; /* Aap apne hisab se chota/bada kar sakte hain */
+    object-fit: contain;
+}
+
+/* Nav Links Layout */
+.nav-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #2b2b2b;
+    font-size: 15px;
+    letter-spacing: 1px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+/* Hover Effect: Chocolate Color */
+.nav-links a:hover {
+    color: #4A2A22; /* Chocolate Color */
+}
+
+/* Dropdown Container */
+.dropdown {
+    position: relative;
+}
+
+.arrow-icon {
+    font-size: 11px;
+    margin-left: 4px;
+    transition: transform 0.3s ease;
+}
+
+/* White Background Dropdown Menu */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 10px 0;
+    min-width: 180px;
+    border-radius: 4px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.dropdown-menu li a {
+    font-family: 'Poppins', sans-serif; /* Dropdown text thoda soft pixel look ke liye */
+    display: block;
+    padding: 10px 20px;
+    color: #444444;
+    font-size: 14px;
+    letter-spacing: 0;
+}
+
+/* Desktop Desktop Hover Show */
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown:hover .arrow-icon {
+    transform: rotate(180deg);
+}
+
+/* Order Online Button */
+.order-btn {
+    border: 2px solid #2b2b2b;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.3s ease !important;
+}
+
+.order-btn:hover {
+    background-color: #4A2A22; /* Chocolate background on hover */
+    color: #ffffff !important;
+    border-color: #4A2A22;
+}
+
+/* Cart Icon */
+.cart-icon {
+    font-size: 18px;
+}
+
+/* Responsive Menu Toggle Icon */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #2b2b2b;
+}
+
+/* --- Responsive Media Queries (Mobile & Tablets) --- */
+@media screen and (max-width: 1100px) {
+    .nav-links {
+        gap: 15px;
+    }
+    .nav-links a {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: -100%;
+        width: 100%;
+        background-color: #ffffff;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px 40px;
+        gap: 20px;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+        transition: left 0.4s ease;
+    }
+
+    /* Mobile active class */
+    .nav-links.active {
+        left: 0;
+    }
+
+    .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        box-shadow: none;
+        padding-left: 15px;
+        display: none; /* JS control karega click par */
+        transform: none;
+    }
+    
+    .dropdown.active .dropdown-menu {
+        display: block;
+    }
+
+    .order-btn {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+    }
+}
+.hero-section {
+    position: relative;
+    background-color: #ffffff;
+    min-height: calc(100vh - 105px); /* Navbar ki height minus karke full screen */
+    display: flex;
+    align-items: center;
+    padding: 60px 40px 180px 40px; /* Bottom padding beans ke liye chhoda hai */
+    overflow: hidden;
+}
+
+.hero-container {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    position: relative;
+    z-index: 5;
+}
+
+/* Left Content */
+.hero-content {
+    flex: 1;
+    max-width: 550px;
+}
+
+.hero-subtitle {
+    font-family: 'Poppins', sans-serif;
+    color: #A36B65; /* Light Chocolate/Rose-ish tone */
+    font-size: 15px;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.hero-title {
+    font-family: 'Playfair Display', serif; /* Elegant Serif Font image jaisa */
+    color: #33221F; /* Dark chocolate text */
+    font-size: 52px;
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+.hero-description {
+    font-family: 'Poppins', sans-serif;
+    color: #555555;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.hero-description strong {
+    color: #222222;
+}
+
+.hero-timing {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: #222222;
+    display: block;
+    margin-bottom: 30px;
+}
+
+/* Hero Buttons */
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.hero-buttons a {
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 12px 24px;
+    transition: all 0.3s ease;
+}
+
+.btn-order-ahead {
+    border: 1px solid #33221F;
+    color: #33221F;
+    background: transparent;
+}
+
+.btn-order-ahead:hover {
+    background-color: #33221F;
+    color: #ffffff;
+}
+
+.btn-menu {
+    background-color: #4A2A22; /* Chocolate Color Button */
+    color: #ffffff;
+    border: 1px solid #4A2A22;
+}
+
+.btn-menu:hover {
+    background-color: #331d17;
+    border-color: #331d17;
+}
+
+/* Right Image (Coffee Cup) */
+.hero-image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.coffee-cup-img {
+    max-width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: contain;
+}
+
+/* Background Watermark Image */
+.watermark-bg {
+    position: absolute;
+    right: -50px;
+    top: 10%;
+    height: 80%;
+    opacity: 0.3; /* Light blended look */
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Bottom Beans Border */
+.beans-border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    line-height: 0;
+    z-index: 4;
+}
+
+.beans-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+
+/* --- ANIMATIONS (FADE IN EFFECTS) --- */
+
+/* Text aur Watermark ke liye fade-in */
+.fade-in {
+    animation: fadeInUp 1.2s ease forwards;
+    opacity: 0;
+}
+
+/* Coffee cup ke liye thoda sa delay animation taaki wo premium lage */
+.fade-in-delay {
+    animation: fadeInUp 1.4s ease 0.3s forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px); /* Niche se upar aayega */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* --- HERO RESPONSIVE MEDIA QUERIES --- */
+@media screen and (max-width: 992px) {
+    .hero-section {
+        padding: 40px 20px 140px 20px;
+    }
+    
+    .hero-title {
+        font-size: 40px;
+    }
+    
+    .coffee-cup-img {
+        max-height: 300px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .hero-container {
+        flex-direction: column-reverse; /* Mobile par cup upar aayega aur text niche */
+        text-align: center;
+        gap: 30px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .watermark-bg {
+        display: none; /* Mobile screen par mashup rokne ke liye hidden */
+    }
+    
+    .hero-title {
+        font-size: 34px;
+    }
+}
+/* =================================================== */
+/* 1. FEATURED SPECIAL SECTION STYLING                 */
+/* =================================================== */
+.featured-section {
+    background-color: #33221F; /* Dark Chocolate Background */
+    padding: 120px 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.featured-container {
+    max-width: 1250px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+}
+
+.featured-info {
+    flex: 1.2;
+    max-width: 600px;
+}
+
+.featured-tag {
+    font-family: 'Poppins', sans-serif;
+    color: #A36B65;
+    font-size: 14px;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.featured-title {
+    font-family: 'Playfair Display', serif;
+    color: #ffffff;
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 25px;
+}
+
+.featured-text {
+    font-family: 'Poppins', sans-serif;
+    color: #cccccc;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 35px;
+}
+
+.pickup-btn {
+    font-family: 'Poppins', sans-serif;
+    display: inline-block;
+    text-decoration: none;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    padding: 12px 26px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.pickup-btn:hover {
+    background-color: #ffffff;
+    color: #33221F;
+}
+
+/* Card Styling & No-Clip Fix */
+.special-card {
+    flex: 0.8;
+    background-color: #ffffff;
+    border-radius: 24px;
+    max-width: 380px;
+    width: 100%;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    position: relative;
+}
+
+.card-header-bg {
+    background-color: #F3E1CC;
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.cup-circle-frame {
+    position: absolute;
+    bottom: -40px;
+    width: 130px;
+    height: 130px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    padding: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.latte-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.card-body {
+    padding: 35px 30px 30px 30px;
+    padding-top: 55px;
+    background-color: #ffffff;
+}
+
+.card-item-title {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: #33221F;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.3;
+    margin-bottom: 12px;
+}
+
+.card-item-price {
+    font-family: 'Poppins', sans-serif;
+    color: #A36B65;
+    font-size: 16px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.card-item-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Poppins', sans-serif;
+    color: #666666;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.card-item-meta i {
+    color: #33221F;
+    font-size: 14px;
+}
+
+.card-item-desc {
+    font-family: 'Poppins', sans-serif;
+    color: #666666;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.card-order-link {
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    color: #33221F;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 2px solid #33221F;
+    padding-bottom: 2px;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.card-order-link:hover {
+    color: #A36B65;
+    border-color: #A36B65;
+}
+
+
+/* =================================================== */
+/* 2. GRAB A BAG SECTION STYLING                       */
+/* =================================================== */
+.bag-section {
+    background-image: url('coffee-seeds-pattern.png'), linear-gradient(to right, #614643, #573E3B);
+    background-repeat: repeat;
+    background-size: contain;
+    background-blend-mode: multiply;
+    background-color: #5D4340;
+    padding: 100px 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.bag-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+}
+
+.bag-image-area {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.coffee-bag-img {
+    max-width: 100%;
+    height: auto;
+    max-height: 480px;
+    object-fit: contain;
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.4));
+}
+
+.bag-info-area {
+    flex: 1.2;
+    max-width: 550px;
+}
+
+.bag-title {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: #ffffff;
+    font-size: 52px;
+    font-weight: 500;
+    line-height: 1.15;
+    margin-bottom: 25px;
+}
+
+.bag-description {
+    font-family: 'Poppins', sans-serif;
+    color: #e0d0cc;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.bag-description strong {
+    color: #ffffff;
+}
+
+.bag-meta-box {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 15px 0;
+    margin-bottom: 35px;
+}
+
+.bag-meta-item {
+    font-family: 'Poppins', sans-serif;
+    color: #e0d0cc;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.bag-meta-item i {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 14px;
+}
+
+.bag-order-btn {
+    font-family: 'Poppins', sans-serif;
+    display: inline-block;
+    text-decoration: none;
+    background-color: #A36B65;
+    color: #ffffff;
+    padding: 12px 28px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.bag-order-btn:hover {
+    background-color: #8c5a54;
+    transform: translateY(-2px);
+}
+
+
+/* =================================================== */
+/* 3. SCROLL-TRIGGERED ANIMATIONS (BASE & STATES)       */
+/* =================================================== */
+
+/* Sabhi elements ki shuruati state (Default hidden rahegi) */
+.anim-element {
+    opacity: 0;
+    transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform, opacity;
+}
+
+/* 1. Fade In Up (Left Side Text & Coffee Bag Image) */
+.fade-in-up {
+    transform: translateY(50px);
+}
+
+/* 2. Slide Left In (Special Card Box) */
+.slide-left-in {
+    transform: translateX(80px);
+}
+
+/* 3. Slide Right In (Grab a Bag Text Info) */
+.slide-right-in {
+    transform: translateX(-80px);
+}
+
+/* --- JAB USER SCROLL KARKE JAYEGA (ACTIVE STATES) --- */
+.scroll-animate.active .anim-element {
+    opacity: 1;
+    transform: translate(0, 0); /* Elements apni jagah smoothly wapas aa jayenge */
+}
+
+
+/* =================================================== */
+/* 4. RESPONSIVE DEVICES MEDIA QUERIES                 */
+/* =================================================== */
+@media screen and (max-width: 992px) {
+    .featured-title { font-size: 38px; }
+    .bag-title { font-size: 42px; }
+    .coffee-bag-img { max-height: 380px; }
+}
+
+@media screen and (max-width: 768px) {
+    .featured-section, .bag-section { padding: 60px 20px; }
+    
+    .featured-container, .bag-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 60px;
+    }
+    
+    /* Mobile reverse layout coffee bag center karne ke liye */
+    .bag-container { flex-direction: column-reverse; }
+
+    .featured-info, .special-card, .bag-info-area { max-width: 100%; }
+    .card-item-meta, .bag-meta-item { justify-content: center; }
+
+    /* Mobile standard scrolling optimize karne ke liye standard fade layout */
+    .slide-left-in, .slide-right-in {
+        transform: translateY(40px);
+    }
+}
+/* =================================================== */
+/* 3. BAKERY PARTNERSHIP SECTION STYLING               */
+/* =================================================== */
+.bakery-section {
+    /* Background me aap apne light watermark pattern ka image path lagana */
+    background-image: url('bakery-doodle-pattern.png');
+    background-repeat: repeat;
+    background-size: cover;
+    background-color: #FAF6F0; /* Light clean warm cream tone jaisa screenshot me hai */
+    padding: 120px 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.bakery-container {
+    max-width: 1250px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+}
+
+/* Left Side Content Layout */
+.bakery-info-area {
+    flex: 1.2;
+    max-width: 620px;
+}
+
+.bakery-tag {
+    font-family: 'Poppins', sans-serif;
+    color: #A36B65; /* Dark pinkish brown tone */
+    font-size: 14px;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.bakery-title {
+    font-family: 'Playfair Display', serif;
+    color: #33221F; /* Chocolate Brown text */
+    font-size: 46px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 25px;
+}
+
+.bakery-description {
+    font-family: 'Poppins', sans-serif;
+    color: #555555; /* Soft gray for readability */
+    font-size: 14px;
+    line-height: 1.75;
+    margin-bottom: 35px;
+}
+
+/* Order CTA Button */
+.bakery-order-btn {
+    font-family: 'Poppins', sans-serif;
+    display: inline-block;
+    text-decoration: none;
+    background-color: #33221F; /* Dark dark theme matching button */
+    color: #ffffff;
+    padding: 12px 30px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.bakery-order-btn:hover {
+    background-color: #A36B65;
+    transform: translateY(-2px);
+}
+
+/* Right Side Image Layout Framework */
+.bakery-image-area {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.bakery-cake-img {
+    max-width: 100%;
+    height: auto;
+    max-height: 450px; /* Screenshot ke big look ke jaisa balance */
+    object-fit: contain;
+    /* Isse aapki translucent splash ya transparent background safe rahega */
+    filter: drop-shadow(0 10px 25px rgba(0,0,0,0.1)); 
+}
+
+
+/* =================================================== */
+/* ALL DEVICES RESPONSIVE MEDIA QUERIES                */
+/* =================================================== */
+@media screen and (max-width: 992px) {
+    .bakery-title {
+        font-size: 36px;
+    }
+    .bakery-cake-img {
+        max-height: 350px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .bakery-section {
+        padding: 70px 20px;
+    }
+
+    .bakery-container {
+        flex-direction: column; /* Mobile me text upar, muffin smoothly niche frame hoga */
+        text-align: center;
+        gap: 50px;
+    }
+
+    .bakery-info-area {
+        max-width: 100%;
+    }
+
+    .bakery-image-area {
+        width: 100%;
+    }
+
+    .bakery-cake-img {
+        max-height: 300px; /* Choti screens ke liye height limit set */
+    }
+}
+/* =================================================== */
+/* COMMUNITY REINVESTMENT SECTION STYLE                */
+/* =================================================== */
+.community-section {
+    background-color: #4A3532; /* Exact premium deep chocolate brown background jaisa image me hai */
+    padding: 140px 40px;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.community-container {
+    max-width: 1250px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end; /* Text ko right side par push karne ke liye formula */
+    align-items: center;
+}
+
+/* Right Aligned Text Box Container */
+.community-content-box {
+    max-width: 550px; /* Layout width balance rakhne ke liye */
+    width: 100%;
+    text-align: left;
+}
+
+.community-tag {
+    font-family: 'Poppins', sans-serif;
+    color: #C08261; /* Soft copper/orange tone tag color */
+    font-size: 14px;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
+
+.community-title {
+    font-family: 'Playfair Display', serif;
+    color: #ffffff; /* Crisp white title heading */
+    font-size: 56px;
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 30px;
+}
+
+.community-paragraph {
+    font-family: 'Poppins', sans-serif;
+    color: #e6dcda; /* Light desaturated tint text for easy reading */
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.community-highlight {
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 1.8;
+    font-weight: 600; /* Extra bold highlight statement */
+}
+
+/* =================================================== */
+/* SCROLL ENGINE ANIMATION CONNECTION                  */
+/* =================================================== */
+.anim-element {
+    opacity: 0;
+    transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform, opacity;
+}
+
+/* Slide configurations */
+.fade-in-up { 
+    transform: translateY(50px); 
+}
+
+/* Jab user scroll karega toh active class add hote hi trigger hoga */
+.scroll-animate.active .anim-element {
+    opacity: 1;
+    transform: translate(0, 0) !important;
+}
+
+
+/* =================================================== */
+/* ALL DEVICES RESPONSIVE SETTINGS                     */
+/* =================================================== */
+@media screen and (max-width: 992px) {
+    .community-title {
+        font-size: 44px; /* Choti desktops ke liye adjustments */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .community-section {
+        padding: 90px 24px; /* Mobile par clean padding adjustments */
+    }
+
+    .community-container {
+        justify-content: center; /* Mobile par full text center me shift ho jayega */
+    }
+
+    .community-content-box {
+        max-width: 100%; /* Pure screen width support stretch protection */
+        text-align: center; /* Mobile par standard text orientation */
+    }
+    
+    .community-title {
+        font-size: 36px; /* Perfect smartphone view font scale */
+    }
+}
+/* =================================================== */
+/* STORY / REIGNITING BUCKEYE SECTION STYLE            */
+/* =================================================== */
+.story-section {
+    background-color: #ffffff; /* Clean pure white background */
+    padding: 120px 40px;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.story-container {
+    max-width: 1250px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+}
+
+/* Left Content Area Alignment */
+.story-content-box {
+    flex: 1.1;
+    max-width: 580px;
+    text-align: left;
+}
+
+.story-title {
+    font-family: 'Playfair Display', serif;
+    color: #33221F; /* Dark chocolate brown text tone */
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 25px;
+}
+
+.story-title-dash {
+    display: block;
+    font-size: 44px;
+    color: #4A3532;
+    margin-top: 5px;
+}
+
+.story-description {
+    font-family: 'Poppins', sans-serif;
+    color: #555555; /* Soft gray for high-end legibility */
+    font-size: 14px;
+    line-height: 1.75;
+    margin-bottom: 35px;
+    font-weight: 400;
+}
+
+/* Read Our Story Button Styling */
+.story-cta-btn {
+    font-family: 'Poppins', sans-serif;
+    display: inline-block;
+    text-decoration: none;
+    background-color: #4A3532; /* Deep solid matching corporate button theme */
+    color: #ffffff;
+    padding: 12px 28px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.story-cta-btn:hover {
+    background-color: #A36B65; /* Smooth shift to secondary rose brown tint */
+    transform: translateY(-2px);
+}
+
+/* Right Single Combined Image Layout Framework */
+.story-image-box {
+    flex: 0.9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 520px;
+    width: 100%;
+}
+
+.story-combined-img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    /* Soft shadow framework to give high fidelity look on clean background */
+    filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.05));
+}
+
+/* =================================================== */
+/* UNIVERSAL ANIMATION HOOKS CONNECTION                */
+/* =================================================== */
+.anim-element {
+    opacity: 0;
+    transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform, opacity;
+}
+
+.fade-in-up { 
+    transform: translateY(50px); 
+}
+
+/* JavaScript trigger state activator */
+.scroll-animate.active .anim-element {
+    opacity: 1;
+    transform: translate(0, 0) !important;
+}
+
+/* =================================================== */
+/* ALL SCREEN SIZES RESPONSIVE ENGINE                  */
+/* =================================================== */
+@media screen and (max-width: 992px) {
+    .story-title {
+        font-size: 38px;
+    }
+    .story-title-dash {
+        font-size: 34px;
+    }
+    .story-container {
+        gap: 40px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .story-section {
+        padding: 80px 24px;
+    }
+
+    .story-container {
+        flex-direction: column; /* Mobile structures stack automatically */
+        text-align: center;
+        gap: 50px;
+    }
+
+    .story-content-box {
+        max-width: 100%;
+        text-align: center; /* Beautifully centered headers on smart screens */
+    }
+
+    .story-image-box {
+        max-width: 100%;
+    }
+    
+    .story-combined-img {
+        max-height: 380px; /* Scaled down safe bounds for mobile viewports */
+    }
+}
+/* =================================================== */
+/* THE DRIP / BLOG POSTS FEED SECTION STYLE            */
+/* =================================================== */
+.drip-section {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+/* Master full-width container without margins for seamless edge look */
+.drip-main-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+/* Base Card Layout Rules */
+.drip-card {
+    flex: 1;
+    min-width: 50%; /* Desktop par exact 50-50 split screen */
+    padding: 100px 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* Specific Block Colors matching the screenshot */
+.drip-card.rose-block {
+    background-color: #836762; /* Soft desaturated clay/rose brown jaisa left me hai */
+}
+
+.drip-card.dark-block {
+    background-color: #42302D; /* Deep solid matching corporate dark chocolate tone jaisa right me hai */
+}
+
+/* Text alignment alignment container inside cards */
+.drip-card-inner {
+    max-width: 540px;
+    width: 100%;
+    text-align: left;
+}
+
+.drip-category-tag {
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 25px;
+    opacity: 0.9;
+}
+
+.drip-post-title {
+    font-family: 'Playfair Display', serif;
+    color: #ffffff;
+    font-size: 34px;
+    font-weight: 400;
+    line-height: 1.25;
+    margin-bottom: 15px;
+}
+
+.drip-subcategory {
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+.drip-excerpt {
+    font-family: 'Poppins', sans-serif;
+    color: rgba(255, 255, 255, 0.85); /* Highly readable soft alpha contrast */
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-weight: 400;
+}
+
+/* Elegant Box Transparent Button */
+.drip-read-btn {
+    font-family: 'Poppins', sans-serif;
+    display: inline-block;
+    text-decoration: none;
+    color: #ffffff;
+    border: 1.5px solid #ffffff;
+    padding: 12px 28px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.drip-read-btn:hover {
+    background-color: #ffffff;
+    color: #33221F;
+    transform: translateY(-2px);
+}
+
+/* =================================================== */
+/* UNIVERSAL VIEWPORT TRANSITION ACTIVATOR             */
+/* =================================================== */
+.anim-element {
+    opacity: 0;
+    transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform, opacity;
+}
+
+.fade-in-up { 
+    transform: translateY(50px); 
+}
+
+/* Scroll activate engine toggle class */
+.scroll-animate.active .anim-element {
+    opacity: 1;
+    transform: translate(0, 0) !important;
+}
+
+/* =================================================== */
+/* ALL DEVICES RESPONSIVE LIQUID SYSTEM                 */
+/* =================================================== */
+@media screen and (max-width: 1024px) {
+    .drip-card {
+        padding: 80px 40px;
+    }
+    .drip-post-title {
+        font-size: 28px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .drip-card {
+        flex: none;
+        width: 100%; /* Mobile par layout split vertical column stack me turn ho jayega */
+        min-width: 100%;
+        padding: 70px 24px;
+    }
+    
+    .drip-card-inner {
+        text-align: center; /* Beautiful presentation centering on mobile viewports */
+    }
+    
+    .drip-post-title {
+        font-size: 26px;
+    }
+    
+    .drip-excerpt {
+        font-size: 13.5px;
+        margin-bottom: 30px;
+    }
+}
+/* =================================================== */
+/* THE TAVERN COFFEEHOUSE FOOTER MAIN STYLE            */
+/* =================================================== */
+.tavern-footer {
+    background-color: #382B29; /* Exact rich warm corporate dark brown jaisa screenshot me hai */
+    padding: 80px 0 0 0; /* Clear bottom alignment layout container */
+    width: 100%;
+    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-top-container {
+    max-width: 1250px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 40px 60px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+/* Base Flexible Column Setup */
+.footer-column {
+    flex: 1;
+}
+
+/* Column 1: Logo Specific Handling */
+.footer-column.logo-column {
+    flex: 1.1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.footer-brand-logo {
+    max-width: 190px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    opacity: 0.95;
+}
+
+/* Headings Styling inside footer grids */
+.footer-col-title {
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    letter-spacing: 0.3px;
+}
+
+.footer-status-title {
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 25px;
+    margin-bottom: 8px;
+}
+
+/* Generic Footer Text Rules */
+.footer-info-text {
+    font-family: 'Poppins', sans-serif;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 13px;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+/* Link Items Custom States */
+.footer-link-item {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.75);
+    font-family: 'Poppins', sans-serif;
+    font-size: 13.5px;
+    transition: color 0.3s ease;
+}
+
+.footer-link-item:hover {
+    color: #ffffff; /* Smooth clean bright transition */
+}
+
+.underline-link {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 2px;
+}
+
+.underline-link:hover {
+    border-bottom-color: #ffffff;
+}
+
+/* Navigation Lists Layout Setup */
+.footer-links-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links-list li {
+    margin-bottom: 14px;
+}
+
+/* Right Side Text Block Layout */
+.footer-column.about-column {
+    flex: 1.4; /* Gives perfect distribution like screen design */
+}
+
+.footer-about-paragraph {
+    font-family: 'Poppins', sans-serif;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* Social Icon Blocks Structure */
+.footer-social-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 25px;
+}
+
+.social-icon-btn {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 16px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.social-icon-btn:hover {
+    opacity: 0.8;
+    transform: translateY(-2px);
+}
+
+/* =================================================== */
+/* BOTTOM LEGAL STRIP AREA DESIGN                      */
+/* =================================================== */
+.footer-bottom-bar {
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 30px 0;
+    background-color: rgba(0, 0, 0, 0.12); /* Slightly darker accent tone wrapper */
+}
+
+.footer-bottom-container {
+    max-width: 1250px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.copyright-legal-text {
+    font-family: 'Poppins', sans-serif;
+    color: rgba(255, 255, 255, 0.45); /* Exact subtle compliance muted gray tone */
+    font-size: 11.5px;
+    line-height: 1.8;
+}
+
+.footer-legal-link, .footer-developer-credit {
+    color: rgba(255, 255, 255, 0.55);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-legal-link:hover, .footer-developer-credit:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* =================================================== */
+/* HIGH FIDELITY RESPONSIVE ENGINEERING FOR MATRIX     */
+/* =================================================== */
+@media screen and (max-width: 1024px) {
+    .footer-top-container {
+        flex-wrap: wrap; /* Grid layers fold on medium screens */
+        gap: 40px;
+    }
+    .footer-column {
+        flex: none;
+        width: calc(33.33% - 30px); /* 3 column structure mapping */
+    }
+    .footer-column.logo-column {
+        width: 100%; /* Logo gets standalone prominence row */
+        margin-bottom: 10px;
+    }
+    .footer-column.about-column {
+        width: 100%; /* About summary shifts clean bottom layer wrapper */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .tavern-footer {
+        padding: 60px 0 0 0;
+    }
+
+    .footer-top-container {
+        flex-direction: column; /* Flat vertical layout pipeline */
+        align-items: center;
+        text-align: center;
+        gap: 45px;
+        padding: 0 24px 50px 24px;
+    }
+
+    .footer-column {
+        width: 100% !important;
+    }
+
+    .footer-column.logo-column {
+        justify-content: center;
+    }
+
+    .footer-social-row {
+        justify-content: center; /* Center handles responsive social rows safely */
+    }
+    
+    .footer-bottom-container {
+        padding: 0 24px;
+    }
+
+    .copyright-legal-text {
+        text-align: center; /* Balanced readability framework for smartphones */
+        font-size: 11px;
+    }
+}

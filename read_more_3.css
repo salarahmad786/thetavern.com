@@ -1,0 +1,241 @@
+body {
+  background-color: #faf6f0; /* Off-white warm editorial background from screenshot */
+  color: #2b2b2b;
+  font-family: 'Georgia', serif; /* Matching editorial typography style */
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- HERO HEADER SECTION --- */
+.hero-banner {
+  background: linear-gradient(rgba(48, 32, 26, 0.93), rgba(48, 32, 26, 0.93)), 
+              url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200') no-repeat center center/cover;
+  color: #ffffff;
+  text-align: center;
+  padding: 75px 20px;
+  border-bottom: 3px solid #1c110d;
+}
+
+.banner-content .category {
+  font-family: 'Arial', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  color: #bfa38a;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.banner-content h1 {
+  font-size: 2.3rem;
+  font-weight: normal;
+  max-width: 850px;
+  margin: 0 auto 15px auto;
+  line-height: 1.25;
+}
+
+.banner-content .author {
+  font-family: 'Arial', sans-serif;
+  font-size: 0.7rem;
+  color: #aba096;
+  letter-spacing: 1px;
+}
+
+/* --- GRID MAIN LAYOUT --- */
+.container {
+  display: flex;
+  max-width: 1160px;
+  margin: 50px auto;
+  padding: 0 30px;
+  gap: 55px;
+}
+
+.main-content {
+  flex: 2;
+}
+
+.sidebar {
+  flex: 1;
+  min-width: 310px;
+}
+
+/* --- LEFT SIDE: INNER STYLES --- */
+.main-image-wrapper {
+  width: 100%;
+  margin-bottom: 35px;
+}
+
+.blog-main-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.article-text p {
+  margin-bottom: 22px;
+  color: #2b2b2b;
+  font-size: 1.05rem;
+  text-align: justify;
+}
+
+.article-text .subtitle-bold {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+}
+
+.coffee-profile {
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+
+.article-text h3 {
+  font-size: 1.15rem;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+
+.article-text blockquote {
+  border-left: 2px solid #222;
+  padding-left: 15px;
+  margin: 18px 0;
+  font-style: italic;
+  color: #444;
+}
+
+.closing-text {
+  margin-top: 40px;
+  border-top: 1px dashed #dcd3c9;
+  padding-top: 25px;
+}
+
+/* --- RIGHT SIDE: YELLOW SIDEBAR CARD WITH ANIMATION SETUP --- */
+.coffee-reads-card {
+  background-color: #eedec9; /* Perfect warm yellow tint from snapshot image */
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  
+  /* Initial state hidden for the complete right side swipe animation */
+  opacity: 0;
+  transform: translateX(80px);
+  transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Active trigger state handled by JavaScript */
+.coffee-reads-card.fade-in-right {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.card-tag {
+  font-family: 'Arial', sans-serif;
+  font-size: 0.68rem;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  color: #59483d;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.card-img-holder {
+  width: 100%;
+  margin-bottom: 18px;
+}
+
+.card-img-holder img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card-body h3 {
+  font-size: 1.15rem;
+  color: #2b1a11;
+  margin-bottom: 8px;
+  font-weight: normal;
+  line-height: 1.35;
+}
+
+.card-author {
+  font-family: 'Arial', sans-serif;
+  font-size: 0.68rem;
+  color: #7d6b5f;
+  margin-bottom: 12px;
+}
+
+.card-desc {
+  font-size: 0.88rem;
+  color: #4f4239;
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+
+.read-more-btn {
+  font-family: 'Arial', sans-serif;
+  font-size: 0.72rem;
+  font-weight: bold;
+  color: #000000;
+  text-decoration: none;
+  border-bottom: 1.5px solid #000000;
+  padding-bottom: 2px;
+  display: inline-block;
+}
+
+/* --- FOOTER LINKS STYLES --- */
+.footer-nav {
+  max-width: 1160px;
+  margin: 60px auto 40px auto;
+  padding: 0 30px;
+}
+
+.footer-line {
+  height: 1px;
+  background-color: #ebdcd0;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.footer-links-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-nav a {
+  font-size: 0.85rem;
+  color: #666666;
+  text-decoration: none;
+}
+
+.footer-nav a:hover {
+  color: #000000;
+}
+
+/* --- FULL ALL DEVICE RESPONSIVE CSS --- */
+@media (max-width: 920px) {
+  .container {
+    flex-direction: column;
+    padding: 0 20px;
+    gap: 45px;
+  }
+  
+  .sidebar {
+    width: 100%;
+  }
+  
+  .footer-links-wrap {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .banner-content h1 {
+    font-size: 1.8rem;
+  }
+  .hero-banner {
+    padding: 55px 15px;
+  }
+}

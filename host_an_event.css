@@ -1,0 +1,257 @@
+/* ==========================================================================
+   1. CORE STRUCTURE & RESETS
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #FFFFFF;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Master cushion wrapper node positioning for sticky system headers */
+.tavern-event-section {
+    width: 100%;
+    background-color: #FFFFFF;
+    scroll-margin-top: 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Container canvas boundary constraints matching your screenshot design matrix */
+.event-section-container {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 95px 40px;
+    display: flex;
+    gap: 55px; /* Symmetrical balanced gutter track separating content columns */
+    align-items: flex-start;
+}
+
+/* ==========================================================================
+   2. LEFT PANEL - EDITORIAL TEXT STYLING ARCHITECTURE
+   ========================================================================== */
+.event-text-column {
+    flex: 1.1; /* Allocates optimal horizontal space to preserve reading columns */
+    display: flex;
+    flex-direction: column;
+}
+
+.event-main-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    font-weight: 400;
+    color: #2F2421; /* Signature deep dark espresso tone */
+    line-height: 1.25;
+    margin-bottom: 24px;
+    letter-spacing: -0.3px;
+}
+
+.event-lead-intro {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14.5px;
+    font-weight: 700; /* Bold accentuation anchor matching layout hierarchy */
+    color: #2F2421;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.event-body-paragraph {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13.5px;
+    font-weight: 400;
+    color: #6F6662; /* Organic charcoal body shade code */
+    line-height: 1.75;
+    margin-bottom: 18px;
+}
+
+.event-body-paragraph strong {
+    font-weight: 600;
+    color: #2F2421;
+}
+
+/* --- Left Border Accent Callout Quote styling --- */
+.event-quote-callout {
+    border-left: 3px solid #352522; /* High-end dark brown border pillar */
+    padding: 2px 0 2px 18px;
+    margin: 24px 0;
+}
+
+.event-quote-callout p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13.5px;
+    font-style: normal;
+    line-height: 1.7;
+    color: #2F2421;
+}
+
+.event-quote-callout .highlight-text {
+    color: #A9856F; /* Muted organic warm cocoa tan color highlight node */
+}
+
+.event-booking-footer {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #6F6662;
+    margin-bottom: 28px;
+}
+
+.event-booking-footer strong {
+    color: #2F2421;
+    font-weight: 600;
+}
+
+.event-inline-anchor {
+    color: #9C3221; /* Signature active wine crimson tint */
+    font-weight: 600;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.event-inline-anchor:hover {
+    color: #2F2421;
+}
+
+/* --- High Contrast CTA Action Button Panel --- */
+.event-action-cta-btn {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    background-color: #312623; /* Matte dark roasted charcoal block */
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 12px 28px;
+    align-self: flex-start; /* Preserves independent dimensional layout track button */
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.event-action-cta-btn:hover {
+    background-color: #9C3221; /* Shifts to wine accent theme on hover interaction */
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   3. RIGHT PANEL - PHOTOGRAPHY FRAME DESIGN
+   ========================================================================== */
+.event-image-column {
+    flex: 0.9;
+    position: sticky; /* Modern layout property anchor to align image smoothly */
+    top: 110px;
+}
+
+.event-img-viewport {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background-color: #F6F3EE; /* Safe rendering image layer fallback shadow */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.event-fluid-media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.event-img-viewport:hover .event-fluid-media {
+    transform: scale(1.025);
+}
+
+/* ==========================================================================
+   4. PREMIUM CINEMATIC SLOW-MOTION INTERSECTION TRANSFORMATION ENGINE
+   ========================================================================== */
+.event-slow-animate {
+    opacity: 0;
+    transform: translateY(45px);
+    /* Ultra fluid slow-motion motion calculation hook */
+    transition: opacity 1.5s cubic-bezier(0.22, 1, 0.36, 1), 
+                transform 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Class toggle deployed by JS tracker when intersecting viewport bounds */
+.event-slow-animate.fade-in-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Balanced timing stagger delay: Image comes into focus subtly after texts */
+.event-image-column.event-slow-animate {
+    transition-delay: 0.28s;
+}
+
+/* ==========================================================================
+   5. RESPONSIVE COMPRESSION GRID PIPELINE (ALL SCREEN VIEWS)
+   ========================================================================== */
+@media screen and (max-width: 1024px) {
+    .event-section-container {
+        gap: 36px;
+        padding: 70px 30px;
+    }
+    .event-main-heading {
+        font-size: 32px;
+    }
+}
+
+@media screen and (max-width: 840px) {
+    /* Collapses fluid layout from inline 2-columns to single unified stack */
+    .event-section-container {
+        flex-direction: column-reverse; /* Pushes image to bottom on mobile, preserving header layout */
+        gap: 40px;
+        padding: 55px 24px;
+    }
+    .event-text-column, .event-image-column {
+        width: 100%;
+        flex: none;
+    }
+    .event-image-column {
+        position: static; /* Disables sticky positioning tracks on phone devices */
+    }
+    .event-main-heading {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+    .event-action-cta-btn {
+        width: 100%; /* Spans full horizontal boundary on mobile viewports */
+        text-align: center;
+        padding: 14px 0;
+    }
+}
+/* =================================================== */
+/* EVENT BOTTOM BEANS BORDER SEPARATOR STYLING        */
+/* =================================================== */
+.event-bottom-border-wrapper {
+    width: 100%;
+    display: block;
+    line-height: 0;       /* Sabhi browsers me image ke niche aane wale unwanted default white space gap ko khatam karta hai */
+    margin-top: 50px;     /* Host an Event section ke text/button se ek clean breathing space balance */
+    background-color: transparent;
+    overflow: hidden;
+    pointer-events: none; /* Agar user wave par click ya drag kare to koi interference na ho */
+}
+
+.event-bean-border-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;    /* Alag-alag desktop screen widths par beans ke ratio ko bina squeeze kiye natural rakhta hai */
+    object-position: bottom center;
+}
+
+/* Responsive viewports optimization */
+@media screen and (max-width: 768px) {
+    .event-bottom-border-wrapper {
+        margin-top: 30px; /* Mobile aur tablet screens par margin space automatic scale down ho jayegi */
+    }
+}

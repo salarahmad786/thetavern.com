@@ -1,0 +1,237 @@
+/* ==========================================================================
+   RESET & FOUNDATION BASE LAYOUT
+   ========================================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #FAF8F5; /* Exact warm cream baseline tone */
+    color: #4A3E3D;
+    line-height: 1.7;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   HERO BANNER HEADER BAR
+   ========================================================================== */
+.blog-hero-banner {
+    width: 100%;
+    background: linear-gradient(rgba(44, 27, 26, 0.88), rgba(44, 27, 26, 0.93)), 
+                url('bean_border.png') repeat; /* Fallback texture matrix setup */
+    background-color: #3D2A25; /* Solid identity backing color */
+    color: #FFFFFF;
+    padding: 90px 24px;
+    text-align: center;
+    border-bottom: 4px solid #5C4033;
+}
+
+.hero-content-alignment {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-top-category {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    color: #D4A373;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.hero-main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    font-weight: 400;
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+
+.hero-meta-author {
+    font-size: 13px;
+    color: #D1C7BD;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+}
+
+.hero-meta-author .category-tag {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   MAIN 2-COLUMN STRUCTURE GRID
+   ========================================================================== */
+.blog-main-layout-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 24px;
+}
+
+.blog-grid-inner {
+    display: block; /* Native fallback grid layout build */
+}
+
+/* Desktop dual arrangement split */
+@media screen and (min-width: 992px) {
+    .blog-grid-inner {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+    }
+    
+    .blog-left-article-column {
+        display: table-cell;
+        width: 68%;
+        vertical-align: top;
+        padding-right: 6%;
+    }
+    
+    .blog-right-sidebar-column {
+        display: table-cell;
+        width: 32%;
+        vertical-align: top;
+    }
+}
+
+/* ==========================================================================
+   LEFT SIDEBAR CONTENT & TYPOGRAPHY
+   ========================================================================== */
+.blog-rich-text-wrapper p {
+    font-size: 15px;
+    font-weight: 300;
+    color: #554844;
+    margin-bottom: 25px;
+    text-align: justify;
+}
+
+.article-section-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: #2C1B1A;
+    margin: 35px 0 15px 0;
+}
+
+.blog-rich-text-wrapper h2:first-of-type {
+    margin-top: 0;
+}
+
+/* Bottom Highlight box */
+.article-insight-footer {
+    margin-top: 45px;
+    border-top: 1px dashed #D3C4BC;
+    padding-top: 25px;
+}
+
+.insight-highlight-text {
+    font-size: 14px;
+    color: #4A3E3D;
+    line-height: 1.6;
+}
+
+.coffee-icon-bullet {
+    margin-right: 6px;
+    font-size: 16px;
+}
+
+/* Bottom Navigator */
+.article-bottom-navigation {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid #E6DEC9;
+}
+
+.nav-prev-link {
+    font-size: 13px;
+    color: #8B5E3C;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-prev-link:hover {
+    color: #2C1B1A;
+}
+
+/* ==========================================================================
+   RIGHT SIDEBAR WIDGET LAYOUT
+   ========================================================================== */
+.sidebar-sticky-widget {
+    background-color: transparent;
+}
+
+.widget-accent-title {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: #8B7A74;
+    margin-bottom: 15px;
+}
+
+.widget-error-box {
+    background-color: #EFE4CF; /* Exact box tint shade from the wireframe */
+    padding: 30px;
+    border-radius: 4px;
+    border-left: 4px solid #C4A484;
+}
+
+.error-box-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #4A3E3D;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.error-box-desc {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #6B5B56;
+}
+
+/* ==========================================================================
+   PREMIUM FADE IN LEFT ANIMATION STYLES
+   ========================================================================== */
+.js-fade-left-trigger {
+    opacity: 0;
+    transform: translateX(-40px); /* Pushes back to left setup starting line */
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
+                transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Activated class driven via intersection viewport tracker script */
+.js-fade-left-trigger.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Mobile responsive alignment overrides */
+@media screen and (max-width: 991px) {
+    .blog-main-layout-container {
+        padding: 40px 20px;
+    }
+    
+    .hero-main-title {
+        font-size: 28px;
+    }
+    
+    .blog-right-sidebar-column {
+        margin-top: 50px;
+    }
+    
+    .widget-error-box {
+        padding: 20px;
+    }
+}
